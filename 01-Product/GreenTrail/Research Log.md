@@ -354,4 +354,129 @@ Several converging signals:
 
 ---
 
+## 2026-04-11
+
+### Entry 6 — European SMB TMS Landscape & GreenTrail Integration Strategy (Jessica)
+
+**Research Question:** What TMS systems do European SMB logistics companies (50–500 employees) actually use, and what are their carbon reporting capabilities? How should GreenTrail’s integration strategy be prioritized?
+
+**Finding: The European SMB TMS market is deeply fragmented across four tiers, and no platform provides native ISO 14083-compliant carbon calculation. This fragmentation is GreenTrail's strategic opportunity.**
+
+#### Part 1: European TMS Market Overview
+
+The global TMS market was valued at $15 billion in 2025 (GM Insights) and is expected to grow at 10.6% CAGR through 2035. The European TMS market specifically is projected to reach $7.4 billion by 2031 (6W Research, CAGR 7.2%). Berg Insight estimates the combined Europe + North America TMS market will exceed €5 billion by 2028.
+
+The market is dominated by enterprise platforms (SAP, Oracle, Blue Yonder, Manhattan Associates, Descartes) that collectively hold the majority of revenue share. However, revenue share is misleading for GreenTrail’s purposes — enterprise platforms serve a small number of very large customers. The SMB segment is served by a fragmented long tail of regional and cloud-native vendors.
+
+#### Part 2: TMS Vendor Landscape by Tier
+
+**Tier 1 — Enterprise Platforms**
+
+| Vendor | HQ | Target | Price Range | Carbon? | Implementation |
+|--------|-----|--------|-------------|---------|----------------|
+| CargoWise (WiseTech) | Australia | Global enterprises 200+ | $6–10/shipment (new model) | Via 3rd party | 6–12+ months |
+| SAP TM | Germany | Enterprise ERP users | $$$$$+/user | Via 3rd party | 12–24 months |
+| Oracle TMS | US | Oracle ecosystem | $$$+/user | Via 3rd party | 6–18 months |
+| Blue Yonder | US | Enterprise supply chain | $$$$$+/user | **GLEC-accredited Logistics Emissions Calculator** | 12–24 months |
+| Manhattan Active TM | US | Large retailers/manufacturers | $$$$+/user | Via MetaPack/partners | 12+ weeks |
+
+**Key insight:** CargoWise dominates global freight forwarding (A$880M revenue FY2024, 28% YoY growth), but is pricing SMBs out. Its 2025 shift to per-shipment “value packs” ($6–10/shipment) caused 150% cost increases for some existing customers, creating significant churn risk. Loadstar reports (2025) that rival TMS providers (Riege, Magaya) are seeing a sharp rise in interest from companies exploring alternatives — a window for complementary tools like GreenTrail.
+
+**Blue Yonder is the only enterprise TMS with GLEC-accredited carbon calculation** — but it’s an enterprise platform with enterprise pricing and implementation timelines. Not relevant for SMBs.
+
+**Tier 2 — European Regional Champions**
+
+| Vendor | HQ | Target | Carbon? | EU SMB Fit |
+|--------|-----|--------|---------|------------|
+| Riege Software (Scope) | Germany | Freight forwarders, customs | None native | **High** — Strong in DACH, ~40 years in market |
+| LIS (WinSped) | Germany | Freight forwarders, carriers | None native | **High** — Leading in German road freight |
+| Alpega Group | Belgium | Mid-large forwarders | Basic sustainability module | **Medium-High** — Broader EU coverage |
+| Transporeon (Trimble) | Germany | Large shippers, 150k+ carriers | Freight benchmarking touches carbon | **Medium** — More shipper-focused, €50k+ annual |
+| Descartes | Canada | Compliance-focused global ops | Via partners | **Medium** — Strong in compliance, less in SMB |
+
+**Key insight:** Riege Scope and LIS WinSped are the TMS platforms most European SMB freight forwarders actually encounter. Riege’s Scope Hub is building an ecosystem of digital integrations (Jan 2025: CargoAi partnership for air cargo), suggesting openness to third-party connectors. WinSped covers the full transport chain with modular architecture. Neither has native carbon capabilities — this is a massive gap that GreenTrail can fill.
+
+**Tier 3 — Emerging Cloud-Native**
+
+| Vendor | HQ | Target | Price | Carbon? | Implementation |
+|--------|-----|--------|-------|---------|----------------|
+| Cargoson | Estonia | EU manufacturers, wholesalers, retailers | From €199/mo | **Basic CO₂ in dashboard** | Days to weeks |
+| GoFreight | US | Mid-market freight forwarders (10–100 emp) | $/user competitive | None | 4–8 weeks |
+| Wisor | US | Small-mid freight forwarders | $/user | None | Days |
+| Magaya | US | Forwarders with WMS needs | $100–400/user/mo | None | 8–12 weeks |
+| FreightPOP | US | Small teams, regional forwarders | Affordable | None | Minimal |
+
+**Key insight:** Cargoson stands out — it’s the only cloud-native European TMS that shows CO₂ emissions alongside price and transit times in real-time. But it’s a basic calculation (estimated CO₂ per carrier), not ISO 14083-compliant, not GLEC-aligned, and not designed for regulatory reporting. This represents both a **potential competitor** and a **potential partner** for GreenTrail. Partnership is more likely: Cargoson is a pure shipper-focused TMS, not a carbon compliance tool. GreenTrail could be the ISO 14083 engine behind Cargoson’s carbon feature.
+
+**Tier 4 — Spreadsheets & Manual Processes**
+
+- 75% of freight forwarders report manual logistics processes slow operations (Freightify, 2026)
+- 66% of Scope 3 reporting still relies on spreadsheets (MIT Sloan, 2025)
+- Many SMBs use a TMS for operational tasks but handle carbon/sustainability in Excel
+- This segment represents GreenTrail’s largest day-one addressable market
+
+#### Part 3: The Carbon Module Pricing Problem
+
+Research on TMS procurement reveals a systematic pattern: TMS vendors charge 15–30% premiums for sustainability modules (TransportManagementSoftware.org, 2026). Specific cost patterns:
+
+- Basic carbon tracking add-ons: 15–30% increase on total system cost
+- Integration with emissions databases via API: $5,000–$15,000 per connection
+- Complex ERP emissions integrations: $50,000+
+- Implementation cost overruns: Hidden costs exceed initial estimates by 25–30%
+
+Vendors are exploiting CSRD urgency and regulatory uncertainty to justify premium pricing for what increasingly should be standard functionality. Several TMS vendors (Cargoson, Alpega, nShift) are beginning to offer transparent carbon pricing as a competitive differentiator against this practice.
+
+**Implication for GreenTrail:** Position as the **affordable, standards-compliant carbon layer** that eliminates the need for expensive TMS sustainability add-ons. SMBs get ISO 14083/GLEC-compliant carbon calculation at a fraction of what enterprise TMS vendors charge for basic CO₂ estimation.
+
+#### Part 4: Integration Strategy Recommendation
+
+**Priority 1 (MVP launch): CSV/Excel Import**
+- Target: 66%+ of market on spreadsheets
+- Accept common TMS export formats (CSV, XLSX)
+- Template library for common fields: origin, destination, weight, mode, carrier, date
+- Zero integration cost, zero technical dependency on TMS vendor
+
+**Priority 2 (Q3 2026): Riege Scope API Connector**
+- Scope Hub ecosystem designed for third-party integrations
+- Accesses DACH market (Germany alone: ~25,000 freight forwarding companies, most are SMBs)
+- Riege’s partnership strategy (CargoAi, etc.) suggests openness to ecosystem plays
+
+**Priority 3 (Q3 2026): Cargoson Partnership**
+- Already shows carbon in dashboard but lacks ISO 14083 depth
+- White-label or API partnership: GreenTrail provides the compliant calculation engine
+- Cargoson’s European shipper focus aligns with GreenTrail’s target market
+
+**Priority 4 (Q4 2026): Alpega TMS Connector**
+- Broader European reach beyond DACH
+- Already positioning around sustainability-with-TMS
+- Likely receptive to carbon integration partners
+
+**Priority 5 (Q4 2026): WinSped/LIS Integration**
+- Strong in German road freight
+- Road mode = simplest ISO 14083 calculation path (HBEFA v5.1 emission factors)
+- Modular architecture may support integration
+
+#### Part 5: Market Sizing Signal
+
+Europe has approximately **400,000+ logistics companies** (Eurostat), of which the vast majority are SMEs. Germany alone has ~60,000 companies in NACE H (Transportation & Storage). France, Italy, Spain, Poland, and the Netherlands each have tens of thousands more.
+
+The addressable market for a €200–500/month carbon compliance tool targeting just the 50–500 employee segment is conservatively **50,000–100,000 companies** across the EU — a €120M–€600M annual revenue opportunity.
+
+#### Implications for GreenTrail
+
+| Implication | Action |
+|-------------|--------|
+| No TMS provides native ISO 14083 carbon | GreenTrail has clear white space |
+| TMS vendors charge 15–30% for basic carbon | Price GreenTrail at a fraction of that |
+| Market is deeply fragmented (no dominant SMB platform) | Build as a standalone layer, not a TMS feature |
+| CSV/Excel is the universal export format | Prioritize CSV import for MVP |
+| Riege Scope + WinSped dominate DACH SMB segment | Target these for first API integrations |
+| Cargoson has basic carbon but lacks compliance depth | Explore white-label partnership |
+| Enterprise TMS churn (CargoWise pricing) | Opportunity to capture forwarders in transition |
+| VSME delegated act (July 2026) = launch window | TMS integration roadmap should align with this |
+
+**Source:** Cargoson blog (Top 17 TMS 2026), Wisor.ai (Top 8 TMS for freight forwarders 2026), GoFreight (Best TMS 2026), Riege.com (Scope Hub, CargoAi partnership Jan 2025), LIS.eu (WinSped), Alpega Group (Sustainability with TMS), Berg Insight (TMS Market Report, 2024), GM Insights (TMS Market Size 2025), 6W Research (Europe TMS Market), Mordor Intelligence (TMS Market Size), TransportManagementSoftware.org (Carbon reporting procurement), Blue Yonder (GLEC-accredited Logistics Emissions Calculator), IntelliTrans (EcoTransIT integration), Loadstar (CargoWise pricing rivals, 2025), WiseTech FY2024 results, FreightOScope (CargoWise competitors), MIT Sloan (Scope 3 spreadsheet data 2025), Freightify (75% manual processes stat 2026).
+
+---
+
 _More entries to follow from Jessica (Research) and Wilson (PM)._

@@ -11,8 +11,9 @@ _Daily insights from Wilson (PM) and Jessica (Research), running through Monday 
 | 2026-04-08 | Wilson | CSRD 2027 creates a hard buying trigger with a fixed deadline - rare in B2B SaaS | Go-to-Market |
 | 2026-04-09 | Wilson | Competitive landscape reveals a "missing middle" - all tools target enterprise, leaving SMBs in a dead zone. GreenTrail's wedge is simplicity + price, not features | Competitive Strategy |
 | 2026-04-09 | Jessica | ISO 14083 + GLEC + CountEmissionsEU converge into one compliance requirement; GLEC default factors enable zero-friction onboarding; GreenTrail's real value is compliance-as-a-service | Standards & Compliance |
-| 2026-04-10 | Wilson | The CSRD Omnibus value-chain cap + VSME standard creates a "top-down acquisition engine" — enterprise customers push SMBs to adopt, and GreenTrail should be the landing page they arrive at. GTM = partner with large shippers, not cold-call SMBs | Go-to-Market Strategy |
-| 2026-04-10 | Jessica | The VSME creates a two-tier data architecture: B3 (Scope 1+2 energy/GHG) is the regulatory floor, but enterprise procurement demands ISO 14083 shipment-level data far beyond it. GreenTrail must serve both layers — VSME compliance as the hook, ISO 14083 depth as the value | Regulatory & Product Architecture |
+| 2026-04-10 | Wilson | The CSRD Omnibus value-chain cap + VSME standard creates a "top-down acquisition engine" - enterprise customers push SMBs to adopt, and GreenTrail should be the landing page they arrive at. GTM = partner with large shippers, not cold-call SMBs | Go-to-Market Strategy |
+| 2026-04-10 | Jessica | The VSME creates a two-tier data architecture: B3 (Scope 1+2 energy/GHG) is the regulatory floor, but enterprise procurement demands ISO 14083 shipment-level data far beyond it. GreenTrail must serve both layers - VSME compliance as the hook, ISO 14083 depth as the value | Regulatory & Product Architecture |
+| 2026-04-11 | Jessica | The European SMB TMS landscape is deeply fragmented - split between expensive enterprise platforms (CargoWise, SAP TM), regional champions (Riege Scope, WinSped, Alpega), and emerging cloud-native tools (Cargoson, Wisor). No TMS offers native ISO 14083 carbon calculation; sustainability modules are premium add-ons charging 15-30% extra. GreenTrail's integration strategy should target CSV/Excel first (the 66% on spreadsheets), then API connectors for the top 5 EU SMB TMS platforms. | TMS Landscape & Integration Strategy |
 
 ---
 
@@ -89,13 +90,13 @@ After deep-diving into the regulatory and standards ecosystem, a critical produc
 
 A critical regulatory development reshapes the entire acquisition strategy:
 
-The **CSRD Omnibus I Directive** (entered into force 18 March 2026) introduced a **value-chain cap** — companies with fewer than 1,000 employees can now legally refuse sustainability data requests that exceed the **Voluntary SME Standard (VSME)**, which the EU Commission must publish by mid-2026.
+The **CSRD Omnibus I Directive** (entered into force 18 March 2026) introduced a **value-chain cap** - companies with fewer than 1,000 employees can now legally refuse sustainability data requests that exceed the **Voluntary SME Standard (VSME)**, which the EU Commission must publish by mid-2026.
 
 This sounds like it *reduces* pressure on SMBs. Paradoxically, it **increases** the opportunity for GreenTrail:
 
 1. **The cap standardizes what's asked.** Instead of every enterprise customer sending bespoke sustainability questionnaires (which SMBs ignore or fumble), there will be ONE known standard (VSME) that everyone aligns to. GreenTrail can be purpose-built to produce exactly that output.
 
-2. **Commercial pressure remains uncapped.** The value-chain cap only limits *formal CSRD data requests*. Enterprise customers can still require carbon data as a **procurement condition** — and they will. "Provide your ISO 14083-compliant emission data or lose the contract" is a commercial decision, not a CSRD request. The cap doesn't touch it.
+2. **Commercial pressure remains uncapped.** The value-chain cap only limits *formal CSRD data requests*. Enterprise customers can still require carbon data as a **procurement condition** - and they will. "Provide your ISO 14083-compliant emission data or lose the contract" is a commercial decision, not a CSRD request. The cap doesn't touch it.
 
 3. **This creates a "top-down acquisition engine."** Large shippers and freight buyers (DHL, Kuehne+Nagel, CEVA, Maersk, enterprise manufacturers) need Scope 3 data from their SMB logistics providers. They will actively push SMBs toward tools that produce compatible data. GreenTrail's GTM should **partner with enterprise buyers** rather than cold-calling SMBs.
 
@@ -105,25 +106,25 @@ This sounds like it *reduces* pressure on SMBs. Paradoxically, it **increases** 
 - The SMB gets a free or subsidized tool (enterprise pays per supplier seat)
 - GreenTrail captures the SMB as a long-term customer who eventually pays directly
 
-**Analogy:** This is the Coupa/Ariba playbook — the buyer network effect. Enterprises don't buy Coupa *for* their suppliers. They buy it for themselves and *pull* suppliers onto the platform. GreenTrail should work the same way for carbon data.
+**Analogy:** This is the Coupa/Ariba playbook - the buyer network effect. Enterprises don't buy Coupa *for* their suppliers. They buy it for themselves and *pull* suppliers onto the platform. GreenTrail should work the same way for carbon data.
 
 **Pricing implication:** Consider a **freemium-for-supplier** model where the enterprise shipper pays for the platform and their SMB carriers get basic access free. Once SMBs see the value (and face requests from *multiple* enterprise customers), they upgrade to paid.
 
 ### Jessica (Research Perspective)
 
-*Insight: The VSME standard and the value-chain cap create a two-tier data architecture — and the gap between the two tiers is exactly where GreenTrail lives.*
+*Insight: The VSME standard and the value-chain cap create a two-tier data architecture - and the gap between the two tiers is exactly where GreenTrail lives.*
 
 After deep-diving into the EFRAG VSME standard (finalized December 17, 2024) and the Omnibus I value-chain cap mechanics, a critical product architecture finding emerges:
 
 **Tier 1: What the law allows SMBs to limit themselves to (VSME)**
 
 The VSME has two modules:
-- **Basic Module (B1–B11):** 11 disclosures. The climate-relevant one is **B3 — Energy and Greenhouse Gas Emissions**, which requires:
+- **Basic Module (B1-B11):** 11 disclosures. The climate-relevant one is **B3 - Energy and Greenhouse Gas Emissions**, which requires:
   - Total energy consumption in MWh (renewable vs. non-renewable breakdown)
   - Gross GHG emissions: **Scope 1 and Scope 2 only** (location-based method)
   - GHG intensity ratio (per € million turnover)
   - Scope 3 is explicitly **voluntary** under B3
-- **Comprehensive Module (C1–C9):** Adds GHG reduction targets (C3), climate transition plans, climate risks (C4). Transport-specific emissions still not mandated.
+- **Comprehensive Module (C1-C9):** Adds GHG reduction targets (C3), climate transition plans, climate risks (C4). Transport-specific emissions still not mandated.
 
 Under the Omnibus I value-chain cap (in force March 18, 2026), companies with <1,000 employees have a **statutory right to refuse** any data request beyond the VSME. The delegated act codifying this is due by **July 19, 2026**.
 
@@ -139,14 +140,75 @@ Here's the critical gap: VSME B3 asks for *company-level* Scope 1+2 totals. But 
 | Format | Free-form sustainability report | Structured, machine-readable |
 | Frequency | Annual | Continuous / per-invoice |
 
-**The Omnibus "commercial loophole":** The value-chain cap limits *CSRD reporting data requests* — but Recital 12 of Omnibus I explicitly states the cap does **not prohibit** requesting information for risk management, due diligence, or voluntary commercial purposes. Enterprise shippers can (and will) continue requiring ISO 14083-compliant emission data as a **procurement condition**. Carbon metrics already account for ~18% of 3PL RFP scoring.
+**The Omnibus "commercial loophole":** The value-chain cap limits *CSRD reporting data requests* - but Recital 12 of Omnibus I explicitly states the cap does **not prohibit** requesting information for risk management, due diligence, or voluntary commercial purposes. Enterprise shippers can (and will) continue requiring ISO 14083-compliant emission data as a **procurement condition**. Carbon metrics already account for ~18% of 3PL RFP scoring.
 
 **What this means for GreenTrail's product architecture:**
 
-1. **Layer 1 — VSME Compliance (the hook):** Auto-generate a VSME B3-compliant climate disclosure from the same data. This is the "free" value that gets SMBs in the door and protects them legally.
-2. **Layer 2 — ISO 14083 Shipment Data (the real value):** Provide the granular, per-shipment emission calculations their enterprise customers actually need. This is what wins contracts.
+1. **Layer 1 - VSME Compliance (the hook):** Auto-generate a VSME B3-compliant climate disclosure from the same data. This is the "free" value that gets SMBs in the door and protects them legally.
+2. **Layer 2 - ISO 14083 Shipment Data (the real value):** Provide the granular, per-shipment emission calculations their enterprise customers actually need. This is what wins contracts.
 3. **The bridge between them:** GreenTrail calculates at the shipment level (Layer 2) and *aggregates up* to produce company-level totals (Layer 1). One data entry, two outputs. The SMB never has to think about which standard applies where.
 
-**Early signal on enterprise operationalization:** Smart Freight Centre's "Sustainable Logistics Procurement" playbook is guiding large freight buyers to standardize carbon data collection from their carrier networks. Companies like DHL, Amazon, and Maersk already have supplier carbon data programs. Post-Omnibus, these programs will likely converge on VSME as the baseline + ISO 14083 as the procurement-grade standard. 70% of supply chain professionals cite lack of supplier data as their primary Scope 3 barrier (MIT Sloan, 2025).
+**Early signal on enterprise operationalization:** Smart Freight Centre’s “Sustainable Logistics Procurement” playbook is guiding large freight buyers to standardize carbon data collection from their carrier networks. Companies like DHL, Amazon, and Maersk already have supplier carbon data programs. Post-Omnibus, these programs will likely converge on VSME as the baseline + ISO 14083 as the procurement-grade standard. 70% of supply chain professionals cite lack of supplier data as their primary Scope 3 barrier (MIT Sloan, 2025).
+
+---
+
+## Day 4 - April 11, 2026
+
+### Jessica (Research Perspective)
+
+*Insight: The European SMB TMS landscape is deeply fragmented — and the carbon integration gap across every tier is GreenTrail's clearest product-market wedge.*
+
+After mapping the transport management system landscape serving European SMB logistics companies (50–500 employees), a critical integration strategy finding emerges:
+
+**The market splits into four tiers, and none of them solve carbon:**
+
+**Tier 1 — Enterprise Platforms (CargoWise, SAP TM, Oracle TMS, Blue Yonder)**
+- Target: Global enterprises with 200+ employees, dedicated IT teams
+- Cost: $30,000–$500,000+/year; 6–24 month implementation
+- Carbon: Blue Yonder has a GLEC-accredited Logistics Emissions Calculator; CargoWise and SAP TM rely on third-party integrations (EcoTransIT, Cozero). Carbon is always a separate premium module, never native.
+- EU SMB relevance: Essentially zero. Price, complexity, and implementation timelines are prohibitive for SMBs.
+
+**Tier 2 — Regional Champions (Riege Scope, LIS WinSped, Alpega, Transporeon)**
+- Target: Mid-sized European freight forwarders, carriers, and LSPs
+- Cost: €10,000–€300,000/year depending on modules and scale
+- Carbon: Alpega has a basic sustainability-with-TMS offering. Transporeon has freight benchmarking that touches carbon. Riege Scope and WinSped have **no native carbon calculation** — this is a major gap. Riege recently partnered with CargoAi for digital air cargo (Jan 2025), showing its modernization trajectory, but carbon is not on its public roadmap.
+- EU SMB relevance: **High.** These are the TMS platforms that actual European SMB forwarders use. Riege Scope and WinSped are particularly strong in the DACH region (Germany/Austria/Switzerland). Alpega has broader European coverage.
+
+**Tier 3 — Emerging Cloud-Native (Cargoson, GoFreight, Wisor, Magaya, FreightPOP)**
+- Target: SMBs, growing forwarders, shippers wanting fast deployment
+- Cost: €199–€5,000/month; 1–8 week implementation
+- Carbon: Cargoson is notably ahead — it offers **real-time CO₂ calculations directly in the dashboard** alongside price and transit time comparisons. This is the closest to what GreenTrail envisions, but it’s a lightweight feature (basic CO₂ per carrier), not ISO 14083-compliant or GLEC-aligned. GoFreight, Wisor, and FreightPOP have **no carbon features.**
+- EU SMB relevance: **Growing rapidly.** Cargoson specifically targets European manufacturers, wholesalers, and retailers. GoFreight is strong in US mid-market. Wisor targets small-to-mid freight forwarders.
+
+**Tier 4 — Spreadsheets & Manual Processes**
+- Target: The majority of SMB logistics companies
+- Cost: Free (but enormous hidden costs in labor, errors, and lost contracts)
+- Carbon: None. Over **75% of freight forwarders** report manual processes slow operations (Freightify, 2026). **66% of Scope 3 reporting still relies on spreadsheets** (MIT Sloan, 2025).
+- EU SMB relevance: **This is GreenTrail's largest addressable segment.** Many SMBs use a TMS for core operations but handle sustainability entirely in Excel — or not at all.
+
+**The carbon integration gap across all tiers:**
+
+| TMS Tier | Carbon Capability | ISO 14083 Compliant? | GLEC Accredited? | Integration Path for GreenTrail |
+|----------|-------------------|---------------------|-----------------|-------------------------------|
+| Enterprise (CargoWise, SAP) | Premium add-on modules | Partial (via 3rd party) | Blue Yonder only | Not a priority (different segment) |
+| Regional (Riege, WinSped, Alpega) | Minimal or none | No | No | **API/EDI connectors — high priority** |
+| Cloud-Native (Cargoson, GoFreight) | Basic CO₂ (Cargoson only) | No | No | **API partnerships — medium priority** |
+| Spreadsheets | None | No | No | **CSV upload — highest priority** |
+
+**The key finding: TMS vendors treat carbon as a premium upsell, not a core capability.** Research on TMS procurement shows sustainability modules typically add 15–30% to total system costs, and vendors are exploiting CSRD urgency to charge premiums for what should be standard functionality. This creates the perfect positioning for GreenTrail as a **standalone carbon intelligence layer** that plugs into any TMS rather than replacing it.
+
+**Integration strategy recommendation (prioritized):**
+
+1. **CSV/Excel import (launch priority):** Capture the 66% on spreadsheets. Accept standard shipment export formats — most TMS systems can export CSV. This is the zero-friction entry point.
+2. **Riege Scope API** (Q3 2026 target): Scope Hub by Riege is building an ecosystem of digital integrations. A GreenTrail connector here accesses the DACH SMB market — Germany alone has ~25,000 freight forwarding companies.
+3. **Cargoson partnership** (Q3 2026): Cargoson already shows carbon in its dashboard but lacks ISO 14083 depth. GreenTrail could be the compliance engine behind Cargoson’s carbon feature — a white-label or API partnership.
+4. **Alpega TMS connector** (Q4 2026): Broader European reach. Alpega’s sustainability-with-TMS positioning suggests openness to carbon integrations.
+5. **WinSped / LIS integration** (Q4 2026): Strong in German road freight — perfect for the land transport segment where ISO 14083 road mode calculations are most straightforward.
+
+**Why “plug-in” beats “platform” for GreenTrail:**
+
+The SMB TMS market is deeply fragmented — no single platform holds even 20% of the European SMB segment. Trying to build GreenTrail as a full TMS would mean competing with entrenched regional players. Instead, GreenTrail should be the **carbon intelligence layer that works with every TMS** — the Stripe model applied to carbon. CSV-in from any source, ISO 14083-compliant calculation, VSME + enterprise-grade reports out.
+
+This also de-risks the enterprise supplier portal strategy from Day 3: when a large shipper invites an SMB carrier onto GreenTrail, the SMB doesn’t need to change their TMS. They just export their shipment data (or connect via API) and GreenTrail handles the rest.
 
 ---
