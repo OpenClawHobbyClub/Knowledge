@@ -212,4 +212,146 @@ Traditional SMB SaaS GTM relies on bottom-up self-serve (SEO, content marketing,
 
 ---
 
+### Entry 5 — VSME Climate Disclosures, ISO 14083 Gap Analysis & Enterprise Data Operationalization (Jessica)
+
+**Research Question:** What does the EFRAG VSME standard specifically require for climate disclosures, how does it interact with ISO 14083, and how are enterprise shippers planning to collect supplier data post-Omnibus?
+
+**Finding: The VSME and ISO 14083 are complementary but serve fundamentally different purposes — and the gap between them defines GreenTrail's product architecture.**
+
+#### Part 1: What the VSME Actually Requires for Climate (B3 & C3)
+
+**Basic Module — B3: Energy and Greenhouse Gas Emissions**
+
+The VSME was finalized by EFRAG on December 17, 2024, and adopted as an EU Commission Recommendation on July 30, 2025. The delegated act (binding version) is due by July 19, 2026.
+
+B3 requires SMEs to disclose:
+
+| Datapoint | Unit | Required? | Notes |
+|-----------|------|-----------|-------|
+| Total energy consumption | MWh | Yes | Breakdown by renewable vs. non-renewable |
+| Electricity (per utility bills) | MWh | Yes | Split renewable/non-renewable |
+| Fuels consumed | MWh | Yes | Split renewable/non-renewable |
+| Scope 1 GHG emissions | tCO₂e | Yes | Direct emissions from owned/controlled sources |
+| Scope 2 GHG emissions (location-based) | tCO₂e | Yes | From purchased electricity/heat |
+| Scope 2 GHG emissions (market-based) | tCO₂e | Optional | Can report alongside location-based |
+| GHG intensity ratio | tCO₂e / €M turnover | Yes | Emissions per million euro revenue |
+| Scope 3 GHG emissions | tCO₂e | **Voluntary** | "Entity-specific" — encouraged but explicitly not required |
+
+Key design notes:
+- No materiality analysis required (VSME uses "if applicable" approach instead of double materiality)
+- Location-based method is the default for Scope 2
+- Nuclear energy is emission-free but NOT counted as renewable
+- If a company chooses to report Scope 3, it must be presented alongside B3 data
+
+**Comprehensive Module — C3: GHG Reduction Targets & Climate Transition**
+
+| Datapoint | Required? | Notes |
+|-----------|-----------|-------|
+| GHG reduction targets (absolute, Scope 1+2) | If targets exist | Absolute values required |
+| Base year and target year | If targets exist | |
+| Climate transition plan | Optional | For high-climate-impact sectors (NACE H: Transportation & Storage is one) |
+| Explanation of contribution to GHG reduction | Optional | |
+
+**Comprehensive Module — C4: Climate Risks**
+
+| Datapoint | Required? | Notes |
+|-----------|-----------|-------|
+| Physical climate risks identified | If applicable | |
+| Transition risks identified | If applicable | |
+| Financial effects of climate risks | If applicable | Qualitative description permitted |
+
+#### Part 2: VSME vs. ISO 14083 — Complementary, Not Overlapping
+
+The VSME and ISO 14083 serve entirely different functions:
+
+| Dimension | VSME (B3 + C3) | ISO 14083 / GLEC |
+|-----------|----------------|------------------|
+| **Purpose** | Company-level sustainability disclosure | Transport chain emission quantification |
+| **Granularity** | Annual company totals | Per-shipment, per-transport-leg |
+| **Scope coverage** | Scope 1+2 mandatory; Scope 3 voluntary | All emissions across transport chain (WTT + TTW) |
+| **Who reports** | The SMB about itself | The SMB to its customers about their shipments |
+| **Methodology** | GHG Protocol (flexible) | ISO 14083 (strict hierarchy + allocation rules) |
+| **Output format** | Narrative sustainability report | Structured emission data per transport service |
+| **Frequency** | Annual | Continuous (per shipment/invoice/quarter) |
+| **Legal basis** | CSRD value-chain cap ceiling | CountEmissionsEU + commercial procurement |
+
+**Critical insight: These are NOT substitutes.** An SMB logistics company needs BOTH:
+1. **VSME B3** to satisfy its own regulatory disclosure and respond to value-chain-capped data requests
+2. **ISO 14083 shipment-level data** to satisfy its enterprise customers' Scope 3 reporting needs and win procurement tenders
+
+A tool that only produces one is incomplete. GreenTrail's architecture must produce both from the same underlying data.
+
+#### Part 3: The "VSME Floor + ISO 14083 Ceiling" Product Architecture
+
+The Omnibus I value-chain cap creates a clear two-tier structure:
+
+**Floor (VSME B3):** The maximum a CSRD-reporting company can formally demand from an SMB supplier for sustainability reporting purposes. Company-level Scope 1+2 GHG totals + energy mix + intensity ratio.
+
+**Ceiling (ISO 14083):** What enterprise customers actually need and will demand commercially. Shipment-level emission calculations, per-lane breakdowns, mode comparisons, allocation to specific customers, data quality labeling.
+
+**The Omnibus commercial loophole (Recital 12):** The value-chain cap explicitly does NOT prohibit data requests for:
+- Risk management purposes
+- Due diligence under CSDDD
+- Voluntary commercial sharing
+- Procurement qualification criteria
+
+This means enterprise shippers can (and will) continue requiring ISO 14083-compliant emission data as a procurement condition. The cap just standardizes the floor — it doesn't lower the ceiling.
+
+**Product architecture implication:**
+
+```
+[Shipment Data Input]
+        ↓
+[ISO 14083/GLEC Calculation Engine]
+        ↓
+    ┌───┴───┐
+    ↓       ↓
+[Layer 1]  [Layer 2]
+ VSME B3    ISO 14083
+ Company    Shipment-level
+ totals     reports
+    ↓       ↓
+[Own ESG    [Enterprise
+ report]    customers]
+```
+
+One data input → two outputs. The SMB enters shipment data once. GreenTrail calculates at the granular level and aggregates up for VSME.
+
+#### Part 4: Early Signals on Enterprise Supplier Data Operationalization
+
+**How are large shippers planning to collect data post-Omnibus?**
+
+Several converging signals:
+
+1. **Carbon as procurement qualification:** Carbon metrics now account for ~18% of 3PL RFP scoring (GlobeNewsWire/Astute Analytica, 2025). This is enough to determine contract outcomes when price and service are comparable.
+
+2. **70% data gap:** 70% of supply chain professionals cite lack of supplier data as their primary Scope 3 barrier (MIT Sloan, 2025). Enterprise shippers are actively seeking tooling to close this gap.
+
+3. **Smart Freight Centre's Sustainable Logistics Procurement playbook:** SFC is actively guiding large freight buyers to standardize carbon data collection using GLEC-aligned methodology. This playbook is becoming the de facto procurement standard.
+
+4. **Platform-driven collection emerging:** Rather than bespoke surveys, enterprise shippers are moving toward platform-based supplier data collection:
+   - Amazon has supplier climate requirements embedded in procurement
+   - DHL offers Scope 3 tracking guidance for shippers across their network
+   - EcoVadis model (ESG ratings) is being adapted for carbon-specific data
+
+5. **66% still on spreadsheets:** Most Scope 3 reporting still relies on spreadsheets (MIT Sloan, 2025). The market is pre-tool — a purpose-built solution has a massive greenfield opportunity.
+
+6. **CSDDD adds another pressure channel:** Companies with 5,000+ employees must conduct risk-based due diligence on their supply chain. For suppliers <5,000 employees, information requests must be "strictly targeted" to material risks — but environmental/climate risk in logistics is almost always material, so this creates another lever for data collection beyond the VSME cap.
+
+#### Implications for GreenTrail
+
+| Implication | Action |
+|-------------|--------|
+| VSME B3 is the minimum viable product output | Build VSME-compliant report generation as a day-one feature |
+| ISO 14083 shipment data is the premium output | This is the upsell and the enterprise value driver |
+| The two tiers share the same underlying data | Architecture: calculate at shipment level, aggregate for VSME |
+| Enterprise buyer is the acquisition channel | Build supplier portal / invite flow from day one |
+| VSME delegated act (July 2026) is a launch window | Be ready to ship VSME support within weeks of publication |
+| Carbon is now a procurement qualifier, not a nice-to-have | Position as "win more tenders" not "comply with regulation" |
+| NACE H (Transport & Storage) is a high-climate-impact sector | C3 climate transition plans are especially relevant for logistics SMBs |
+
+**Source:** EFRAG VSME Standard (Dec 2024), EFRAG Knowledge Hub (B3 interactive), Selko Insights (B3 & C3 explainers), ESG for Suppliers (VSME 11 disclosures guide), EcoVadis (Value chain action post-Omnibus), BCLP Law (CSRD data requests from SME suppliers), Sunhat (CSRD Omnibus + VSME analysis), KPMG (EU Omnibus ESRS changes), CodeNinja Consulting (Scope 3 logistics qualification gap), Smart Freight Centre (Sustainable Logistics Procurement), MIT Sloan (Supply chain Scope 3 tracking).
+
+---
+
 _More entries to follow from Jessica (Research) and Wilson (PM)._

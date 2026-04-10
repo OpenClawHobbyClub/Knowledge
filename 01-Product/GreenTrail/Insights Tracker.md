@@ -12,6 +12,7 @@ _Daily insights from Wilson (PM) and Jessica (Research), running through Monday 
 | 2026-04-09 | Wilson | Competitive landscape reveals a "missing middle" - all tools target enterprise, leaving SMBs in a dead zone. GreenTrail's wedge is simplicity + price, not features | Competitive Strategy |
 | 2026-04-09 | Jessica | ISO 14083 + GLEC + CountEmissionsEU converge into one compliance requirement; GLEC default factors enable zero-friction onboarding; GreenTrail's real value is compliance-as-a-service | Standards & Compliance |
 | 2026-04-10 | Wilson | The CSRD Omnibus value-chain cap + VSME standard creates a "top-down acquisition engine" — enterprise customers push SMBs to adopt, and GreenTrail should be the landing page they arrive at. GTM = partner with large shippers, not cold-call SMBs | Go-to-Market Strategy |
+| 2026-04-10 | Jessica | The VSME creates a two-tier data architecture: B3 (Scope 1+2 energy/GHG) is the regulatory floor, but enterprise procurement demands ISO 14083 shipment-level data far beyond it. GreenTrail must serve both layers — VSME compliance as the hook, ISO 14083 depth as the value | Regulatory & Product Architecture |
 
 ---
 
@@ -110,6 +111,42 @@ This sounds like it *reduces* pressure on SMBs. Paradoxically, it **increases** 
 
 ### Jessica (Research Perspective)
 
-_Pending — Jessica's insight will be added after her daily research run._
+*Insight: The VSME standard and the value-chain cap create a two-tier data architecture — and the gap between the two tiers is exactly where GreenTrail lives.*
+
+After deep-diving into the EFRAG VSME standard (finalized December 17, 2024) and the Omnibus I value-chain cap mechanics, a critical product architecture finding emerges:
+
+**Tier 1: What the law allows SMBs to limit themselves to (VSME)**
+
+The VSME has two modules:
+- **Basic Module (B1–B11):** 11 disclosures. The climate-relevant one is **B3 — Energy and Greenhouse Gas Emissions**, which requires:
+  - Total energy consumption in MWh (renewable vs. non-renewable breakdown)
+  - Gross GHG emissions: **Scope 1 and Scope 2 only** (location-based method)
+  - GHG intensity ratio (per € million turnover)
+  - Scope 3 is explicitly **voluntary** under B3
+- **Comprehensive Module (C1–C9):** Adds GHG reduction targets (C3), climate transition plans, climate risks (C4). Transport-specific emissions still not mandated.
+
+Under the Omnibus I value-chain cap (in force March 18, 2026), companies with <1,000 employees have a **statutory right to refuse** any data request beyond the VSME. The delegated act codifying this is due by **July 19, 2026**.
+
+**Tier 2: What enterprise customers actually need (ISO 14083 shipment-level data)**
+
+Here's the critical gap: VSME B3 asks for *company-level* Scope 1+2 totals. But what enterprise shippers need for their own CSRD Scope 3 Category 4/9 reporting is *shipment-level* emission data calculated per ISO 14083 methodology. These are fundamentally different:
+
+| Dimension | VSME B3 | Enterprise Procurement Need |
+|-----------|---------|---------------------------|
+| Granularity | Company-level annual totals | Per-shipment, per-lane |
+| Scopes | Scope 1+2 only | Scope 3 (their perspective) |
+| Methodology | Any credible source | ISO 14083 / GLEC Framework |
+| Format | Free-form sustainability report | Structured, machine-readable |
+| Frequency | Annual | Continuous / per-invoice |
+
+**The Omnibus "commercial loophole":** The value-chain cap limits *CSRD reporting data requests* — but Recital 12 of Omnibus I explicitly states the cap does **not prohibit** requesting information for risk management, due diligence, or voluntary commercial purposes. Enterprise shippers can (and will) continue requiring ISO 14083-compliant emission data as a **procurement condition**. Carbon metrics already account for ~18% of 3PL RFP scoring.
+
+**What this means for GreenTrail's product architecture:**
+
+1. **Layer 1 — VSME Compliance (the hook):** Auto-generate a VSME B3-compliant climate disclosure from the same data. This is the "free" value that gets SMBs in the door and protects them legally.
+2. **Layer 2 — ISO 14083 Shipment Data (the real value):** Provide the granular, per-shipment emission calculations their enterprise customers actually need. This is what wins contracts.
+3. **The bridge between them:** GreenTrail calculates at the shipment level (Layer 2) and *aggregates up* to produce company-level totals (Layer 1). One data entry, two outputs. The SMB never has to think about which standard applies where.
+
+**Early signal on enterprise operationalization:** Smart Freight Centre's "Sustainable Logistics Procurement" playbook is guiding large freight buyers to standardize carbon data collection from their carrier networks. Companies like DHL, Amazon, and Maersk already have supplier carbon data programs. Post-Omnibus, these programs will likely converge on VSME as the baseline + ISO 14083 as the procurement-grade standard. 70% of supply chain professionals cite lack of supplier data as their primary Scope 3 barrier (MIT Sloan, 2025).
 
 ---
