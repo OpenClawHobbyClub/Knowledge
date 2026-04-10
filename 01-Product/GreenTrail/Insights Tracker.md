@@ -14,6 +14,7 @@ _Daily insights from Wilson (PM) and Jessica (Research), running through Monday 
 | 2026-04-10 | Wilson | The CSRD Omnibus value-chain cap + VSME standard creates a "top-down acquisition engine" - enterprise customers push SMBs to adopt, and GreenTrail should be the landing page they arrive at. GTM = partner with large shippers, not cold-call SMBs | Go-to-Market Strategy |
 | 2026-04-10 | Jessica | The VSME creates a two-tier data architecture: B3 (Scope 1+2 energy/GHG) is the regulatory floor, but enterprise procurement demands ISO 14083 shipment-level data far beyond it. GreenTrail must serve both layers - VSME compliance as the hook, ISO 14083 depth as the value | Regulatory & Product Architecture |
 | 2026-04-11 | Jessica | The European SMB TMS landscape is deeply fragmented - split between expensive enterprise platforms (CargoWise, SAP TM), regional champions (Riege Scope, WinSped, Alpega), and emerging cloud-native tools (Cargoson, Wisor). No TMS offers native ISO 14083 carbon calculation; sustainability modules are premium add-ons charging 15-30% extra. GreenTrail's integration strategy should target CSV/Excel first (the 66% on spreadsheets), then API connectors for the top 5 EU SMB TMS platforms. | TMS Landscape & Integration Strategy |
+| 2026-04-11 | Wilson | GreenTrail's MVP is a "10-minute compliance" play — CSV upload → ISO 14083 calculation → dual output (VSME B3 company report + shipment-level data for enterprise customers). Three user entry points: self-serve SMB, enterprise-invited supplier, and TMS white-label. The product-market fit test is one question: can an SMB with zero sustainability expertise produce an ISO 14083-compliant emission report within one session? If yes, we win. | Product Definition & MVP Strategy |
 
 ---
 
@@ -210,5 +211,94 @@ After mapping the transport management system landscape serving European SMB log
 The SMB TMS market is deeply fragmented — no single platform holds even 20% of the European SMB segment. Trying to build GreenTrail as a full TMS would mean competing with entrenched regional players. Instead, GreenTrail should be the **carbon intelligence layer that works with every TMS** — the Stripe model applied to carbon. CSV-in from any source, ISO 14083-compliant calculation, VSME + enterprise-grade reports out.
 
 This also de-risks the enterprise supplier portal strategy from Day 3: when a large shipper invites an SMB carrier onto GreenTrail, the SMB doesn’t need to change their TMS. They just export their shipment data (or connect via API) and GreenTrail handles the rest.
+
+---
+
+## Day 4 (continued) - April 11, 2026
+
+### Wilson (PM Perspective)
+
+*Insight: GreenTrail's MVP is a "10-minute compliance" play — the product that turns CSV shipment data into ISO 14083-compliant reports before the user finishes their coffee.*
+
+After four days of research, the pieces snap together into a clear product definition. Jessica mapped the TMS landscape (Day 4) and found nobody offers native ISO 14083 carbon. My earlier work identified the competitive gap (Day 2), the top-down GTM via enterprise buyers (Day 3), and the integration-over-collection architecture (Day 1). Now: what do we actually build?
+
+**The MVP = "10-Minute Compliance"**
+
+The core product thesis reduces to one test: *Can an SMB logistics company with zero sustainability expertise produce an ISO 14083-compliant emission report within a single session?*
+
+If the answer is yes, GreenTrail wins. Here's why: every competitor requires weeks of setup, custom integration, or consultant hand-holding. If we nail the 10-minute experience, we're not competing on features — we're competing on a fundamentally different time-to-value.
+
+**Three Entry Points, One Engine:**
+
+```
+Entry Point 1: Self-Serve SMB
+  [Sign up] → [Upload CSV] → [Map columns] → [Calculate] → [Download report]
+  Time: 10 minutes | Cost: Free trial / €199-499/mo
+
+Entry Point 2: Enterprise-Invited Supplier
+  [Receive invite link] → [Create account] → [Upload CSV] → [Reports auto-shared with buyer]
+  Time: 10 minutes | Cost: Free (enterprise pays per supplier seat)
+
+Entry Point 3: TMS White-Label (future)
+  [API integration] → [Automatic calculation] → [Reports in TMS dashboard]
+  Time: Zero for end user | Cost: Per-calculation API fee
+```
+
+**MVP Feature Set (Ruthlessly Scoped):**
+
+| Feature | In MVP? | Rationale |
+|---------|---------|-----------|
+| CSV/Excel upload | ✅ Yes | Targets 66% of market on spreadsheets |
+| Column auto-mapping | ✅ Yes | "Smart" detection of origin, destination, weight, mode, carrier |
+| GLEC default emission factors | ✅ Yes | Zero-friction; compliant from day one |
+| ISO 14083 shipment-level calculation | ✅ Yes | The core engine |
+| VSME B3 company-level report | ✅ Yes | Aggregates from shipment data; dual output |
+| Data quality tier labeling | ✅ Yes | Required by ISO 14083; builds auditor trust |
+| Enterprise supplier invite flow | ✅ Yes | The GTM channel; must be in v1 |
+| PDF/Excel report export | ✅ Yes | The deliverable SMBs share with customers |
+| TMS API connectors | ❌ v2 | Start with CSV; APIs after product-market fit |
+| Scenario modeling / reduction planning | ❌ v2 | Nice-to-have, not core compliance |
+| Offset tracking | ❌ Never in reports | ISO 14083 forbids netting offsets |
+| GLEC/SFC accreditation | 🎯 Target | Apply during MVP build; credibility signal |
+
+**The "Supplier Portal" as GTM Weapon:**
+
+This is the critical architectural decision: the enterprise invite flow isn't a feature — it's the distribution channel. Drawing from the EcoVadis and Coupa playbooks:
+
+1. Enterprise shipper signs up → gets a dashboard showing their carrier network's emissions
+2. Enterprise invites SMB carriers via email link → "Your customer [DHL/Maersk/etc.] is requesting ISO 14083 emission data"
+3. SMB clicks link → creates account → uploads one CSV → report auto-generates and shares back to enterprise
+4. SMB is now on the platform. Second enterprise customer asks for the same data? Already there.
+5. Network effect compounds: more enterprises → more SMBs → more enterprises see their carriers already reporting
+
+**Pricing Model:**
+
+| Tier | User | Price | What They Get |
+|------|------|-------|---------------|
+| Free | Enterprise-invited SMB | €0 | Basic reports for the inviting enterprise customer |
+| Starter | Self-serve SMB | €199/mo | Up to 500 shipments/mo, 1 enterprise report output |
+| Growth | SMB with multiple customers | €499/mo | Unlimited shipments, multi-customer dashboard, API access |
+| Enterprise | Large shipper/buyer | €50-100/supplier/mo | Supplier portal, fleet-wide dashboard, audit trail |
+
+**The "Free-for-Invited-Suppliers" model is non-negotiable.** If we charge the SMB to respond to their customer's data request, friction kills adoption. The enterprise buyer must pay. This is the Coupa model: buyer funds the platform, suppliers join for free, value compounds as the network grows.
+
+**Timeline Alignment:**
+
+| Milestone | Date | Why It Matters |
+|-----------|------|----------------|
+| VSME delegated act published | ~July 2026 | Standardizes the output format; first-mover advantage |
+| CountEmissionsEU final text | H2 2026 | Confirms ISO 14083 as the methodology |
+| CSRD first reports including Scope 3 | 2025-2026 (ongoing) | Enterprise buyers actively seeking supplier data NOW |
+| GreenTrail MVP target | Q3 2026 | Land before VSME publication; iterate after |
+
+**Key Risk:** GLEC default emission factors are available to SFC members and certified tools. We need to secure access early — either through SFC membership or by applying for GLEC tool accreditation during MVP build. This is a gating dependency.
+
+**What This Means for the Board Meeting (Monday):**
+
+The product definition is now clear enough to discuss build decisions:
+1. *Build or buy the calculation engine?* (Recommendation: build — it's the core IP, and the GLEC math is documented)
+2. *Which entry point first?* (Recommendation: self-serve SMB for validation, enterprise invite for scale)
+3. *Who builds it?* (This is an architecture + front-end + back-end discussion for the full agent team)
+4. *GLEC/SFC relationship?* (Need to initiate contact — Roger, is this something the Board wants to pursue?)
 
 ---

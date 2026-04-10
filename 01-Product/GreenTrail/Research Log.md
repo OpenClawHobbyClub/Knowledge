@@ -480,3 +480,164 @@ The addressable market for a €200–500/month carbon compliance tool targeting
 ---
 
 _More entries to follow from Jessica (Research) and Wilson (PM)._
+
+### Entry 7 — MVP Product Definition & "10-Minute Compliance" Thesis (Wilson)
+
+**Research Question:** Synthesizing four days of PM and research insights — what exactly should GreenTrail's minimum viable product be, and what's the go-to-market sequence?
+
+**Finding: GreenTrail's MVP is defined by a single experience metric: "10-minute compliance" — the time from first login to a valid ISO 14083-compliant emission report.**
+
+#### Part 1: The Synthesis
+
+Four days of parallel PM and research work have produced a clear enough picture to define the product:
+
+| Day | Wilson (PM) | Jessica (Research) | Combined Insight |
+|-----|-------------|-------------------|------------------|
+| 1 | Integration play, not data collection | (Onboarding) | Architecture: layer on existing data |
+| 2 | "Missing middle" — SMBs unserved | Standards convergence (ISO/GLEC/CountEmissionsEU) | Market gap + regulatory tailwind confirmed |
+| 3 | Top-down GTM via enterprise buyers | VSME + ISO 14083 two-tier architecture | Distribution channel + product architecture aligned |
+| 4 | MVP product definition (this entry) | TMS landscape is fragmented, no native carbon | Integration strategy confirmed: CSV first, APIs later |
+
+The picture is now sharp enough to spec an MVP.
+
+#### Part 2: The "10-Minute Compliance" Test
+
+The entire product thesis boils down to one experience test: **Can an SMB logistics company with zero sustainability expertise produce an ISO 14083-compliant emission report within 10 minutes of first contact?**
+
+Why 10 minutes matters:
+- Current alternatives require *weeks* of setup (enterprise tools) or *months* of consultant-assisted implementation
+- The SMB buyer persona has no sustainability team, no carbon expertise, and no patience for complex onboarding
+- If the first experience is magical ("I uploaded a spreadsheet and got a regulatory-grade report in minutes"), word-of-mouth does the marketing
+
+The user journey for a self-serve SMB:
+
+```
+Minute 0-1:  Sign up (email + company name + country)
+Minute 1-3:  Upload CSV of recent shipments (or use sample data to explore)
+Minute 3-5:  GreenTrail auto-detects columns (origin, destination, weight, mode)
+             User confirms/corrects column mapping
+Minute 5-7:  Calculation runs using GLEC default emission factors
+             Results dashboard shows: total emissions, per-shipment breakdown,
+             data quality tier labels, mode comparison
+Minute 7-10: Download PDF report (ISO 14083-structured) or
+             Download VSME B3-ready data export or
+             Share directly with enterprise customer via link
+```
+
+#### Part 3: Three Entry Points, One Calculation Engine
+
+The product architecture must serve three user entry points through a single calculation engine:
+
+**Entry Point 1: Self-Serve SMB (€199-499/mo)**
+- The SMB finds GreenTrail through search, content marketing, or industry events
+- Self-onboards via CSV upload
+- Pays directly; owns their data and reports
+- This is the product validation channel — proves the 10-minute thesis
+
+**Entry Point 2: Enterprise-Invited Supplier (Free for supplier, enterprise pays)**
+- An enterprise shipper (DHL, Maersk, a large manufacturer) invites their SMB logistics providers
+- SMB receives branded email: "Your customer is requesting ISO 14083 emission data. Get started free."
+- SMB uploads CSV → report auto-shares with the inviting enterprise
+- Enterprise pays per-supplier-seat (€50-100/supplier/mo)
+- This is the scale channel — the Coupa/EcoVadis network effect
+
+**Entry Point 3: TMS White-Label API (Future, per-calculation fee)**
+- GreenTrail as a headless API integrated into Cargoson, Riege Scope, or other TMS platforms
+- TMS handles the UX; GreenTrail handles the ISO 14083 calculation + reporting
+- Priced per API call or per shipment calculation
+- This is the ecosystem channel — follows Jessica's integration roadmap
+
+**All three entry points feed the same engine:**
+
+```
+[CSV Upload / API Input / TMS Connector]
+              ↓
+[Column Mapping & Data Validation]
+              ↓
+[ISO 14083 / GLEC Calculation Engine]
+  - Route distance calculation
+  - Mode-specific emission factors (GLEC v3.2 defaults)
+  - Well-to-tank + tank-to-wheel
+  - Allocation to transport service users
+  - Data quality tier assignment
+              ↓
+     ┌────────┴────────┐
+     ↓                 ↓
+[VSME B3 Output]   [Shipment-Level Output]
+ Company totals     Per-shipment ISO 14083
+ Scope 1+2 agg     Per-lane breakdown
+ GHG intensity     Customer allocation
+ Annual report     Continuous/per-invoice
+     ↓                 ↓
+[Own compliance]   [Enterprise customer]
+```
+
+#### Part 4: MVP Feature Scoping
+
+Applying the "ruthless scoping" principle — what's in, what's out, and why:
+
+**In MVP (must have for 10-minute thesis):**
+1. CSV/Excel upload with auto-column detection
+2. GLEC v3.2 default emission factors for road, rail, sea, air
+3. ISO 14083-structured shipment-level calculation
+4. VSME B3 company-level aggregation
+5. Data quality tier labeling (default/modelled/primary)
+6. PDF + Excel report export
+7. Enterprise supplier invite flow (email link → free account → auto-share)
+8. Basic dashboard (total emissions, per-mode breakdown, trend over uploads)
+
+**Deferred to v2 (valuable but not required for validation):**
+- TMS API connectors (Riege, Cargoson, Alpega, WinSped)
+- Primary data ingestion from fuel cards / telematics
+- Scenario modeling ("what if we shifted 20% to rail?")
+- Reduction target setting + tracking
+- Multi-language support (start English + German)
+- GLEC/SFC accreditation badge (apply during build, display when granted)
+
+**Explicitly excluded (never in product):**
+- Carbon offset tracking within emission reports (ISO 14083 forbids netting)
+- Full TMS functionality (we're a layer, not a replacement)
+- Scope 1+2 company-level calculation from non-transport sources (not our domain)
+
+#### Part 5: Pricing Architecture
+
+The pricing model follows the dual-acquisition strategy:
+
+| Tier | Who | Monthly Price | Key Limits |
+|------|-----|--------------|------------|
+| Free Trial | Anyone | €0 for 14 days | Full features, 100 shipments |
+| Starter | Self-serve SMB | €199/mo | 500 shipments/mo, 1 report template |
+| Growth | Multi-customer SMB | €499/mo | Unlimited shipments, multi-customer dashboard, API access |
+| Enterprise | Large shipper/buyer | €50-100/supplier/mo | Supplier portal, fleet-wide visibility, audit trail, SSO |
+| Invited Supplier | Enterprise-invited SMB | €0 (enterprise pays) | Basic reports for inviting customer only |
+
+**Critical pricing decision: Free-for-invited-suppliers is non-negotiable.** The network effect dies if SMBs face friction to respond to their customer's data request. The enterprise buyer absorbs the cost — this is their Scope 3 data problem, and they're willing to pay to solve it.
+
+**Unit economics at scale:** At €75/supplier/mo average enterprise seat price, with 100 enterprise customers averaging 50 suppliers each = 5,000 paying supplier seats = €375K MRR from enterprise channel alone. Self-serve SMB tier provides additional direct revenue with higher margins.
+
+#### Part 6: Dependencies & Risks for Board Discussion
+
+| Dependency | Risk Level | Mitigation |
+|------------|-----------|------------|
+| GLEC emission factor access | 🔴 High | Apply for SFC membership / tool accreditation immediately |
+| VSME delegated act timing | 🟡 Medium | Build flexible report templates; finalize output format when published |
+| Route distance calculation | 🟡 Medium | Use open-source routing (OSRM) for road; IATA city-pair for air; port-to-port databases for sea |
+| ISO 14083 methodology interpretation | 🟡 Medium | Engage with SFC for guidance; hire a standards consultant for initial review |
+| Enterprise customer acquisition | 🟡 Medium | Start with 1-2 pilot enterprise partners; validate the invite flow before scaling |
+| Market timing (CSRD reporting cycle) | 🟢 Low | Urgency is now; enterprises are already asking for 2025 data |
+
+#### Implications for Board Meeting (Monday April 13)
+
+The product is defined enough to move to architecture and design decisions:
+
+1. **Calculation engine:** Build in-house (core IP) using documented GLEC methodology
+2. **First entry point to build:** Self-serve SMB (proves the thesis) + enterprise invite (proves the channel) — in parallel
+3. **Stack decisions needed:** Frontend framework, backend language, hosting, database — Marcus (Architect) and the dev team should propose
+4. **GLEC/SFC relationship:** Someone needs to reach out to Smart Freight Centre — this is a gating dependency
+5. **First pilot customer:** Identify 1-2 enterprise shippers willing to test the supplier portal concept
+
+**Source:** Coupa Supplier Network (pricing model), EcoVadis (rated company/buyer model), SFC GLEC Framework v3.2 (emission factor methodology), ISO 14083:2023 (calculation standard), EFRAG VSME (output format requirements), McKinsey (logistics decarbonization willingness-to-pay), SBTi Supplier Engagement Guidance (enterprise procurement requirements), Atlassian (MVP methodology), IBM Supply Chain Intelligence Suite (PCF data exchange patterns).
+
+---
+
+_More entries to follow from Jessica (Research) and Wilson (PM)._
