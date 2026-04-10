@@ -9,8 +9,9 @@ _Daily insights from Wilson (PM) and Jessica (Research), running through Monday 
 | 2026-04-08 | Wilson | The airline offset analogy is the "why now" framing - consumers already accept per-transaction carbon visibility; logistics is the next industry to adopt this | Market Framing |
 | 2026-04-08 | Wilson | This is an integration play, not a data collection problem - shipment data already exists in TMS/carrier systems | Architecture |
 | 2026-04-08 | Wilson | CSRD 2027 creates a hard buying trigger with a fixed deadline - rare in B2B SaaS | Go-to-Market |
-| 2026-04-09 | Wilson | Competitive landscape reveals a “missing middle” — all tools target enterprise, leaving SMBs in a dead zone. GreenTrail’s wedge is simplicity + price, not features | Competitive Strategy |
-| 2026-04-09 | Jessica | ISO 14083 + GLEC + CountEmissionsEU converge into one compliance requirement; GLEC default factors enable zero-friction onboarding; GreenTrail’s real value is compliance-as-a-service | Standards & Compliance |
+| 2026-04-09 | Wilson | Competitive landscape reveals a "missing middle" - all tools target enterprise, leaving SMBs in a dead zone. GreenTrail's wedge is simplicity + price, not features | Competitive Strategy |
+| 2026-04-09 | Jessica | ISO 14083 + GLEC + CountEmissionsEU converge into one compliance requirement; GLEC default factors enable zero-friction onboarding; GreenTrail's real value is compliance-as-a-service | Standards & Compliance |
+| 2026-04-10 | Wilson | The CSRD Omnibus value-chain cap + VSME standard creates a "top-down acquisition engine" — enterprise customers push SMBs to adopt, and GreenTrail should be the landing page they arrive at. GTM = partner with large shippers, not cold-call SMBs | Go-to-Market Strategy |
 
 ---
 
@@ -76,5 +77,39 @@ After deep-diving into the regulatory and standards ecosystem, a critical produc
 - Transparently label data quality tier per calculation (builds auditor trust)
 
 **Why this matters:** No SMB logistics company is going to read a 100+ page ISO standard or track GLEC Framework version updates. GreenTrail's real value proposition isn't *calculation* - it's **compliance-as-a-service**. Embed the standards so deeply that the user never has to think about them.
+
+---
+
+## Day 3 - April 10, 2026
+
+### Wilson (PM Perspective)
+
+*Insight: The CSRD Omnibus value-chain cap transforms GreenTrail's go-to-market from "sell to SMBs" to "be the tool enterprise customers push their SMB suppliers toward."*
+
+A critical regulatory development reshapes the entire acquisition strategy:
+
+The **CSRD Omnibus I Directive** (entered into force 18 March 2026) introduced a **value-chain cap** — companies with fewer than 1,000 employees can now legally refuse sustainability data requests that exceed the **Voluntary SME Standard (VSME)**, which the EU Commission must publish by mid-2026.
+
+This sounds like it *reduces* pressure on SMBs. Paradoxically, it **increases** the opportunity for GreenTrail:
+
+1. **The cap standardizes what's asked.** Instead of every enterprise customer sending bespoke sustainability questionnaires (which SMBs ignore or fumble), there will be ONE known standard (VSME) that everyone aligns to. GreenTrail can be purpose-built to produce exactly that output.
+
+2. **Commercial pressure remains uncapped.** The value-chain cap only limits *formal CSRD data requests*. Enterprise customers can still require carbon data as a **procurement condition** — and they will. "Provide your ISO 14083-compliant emission data or lose the contract" is a commercial decision, not a CSRD request. The cap doesn't touch it.
+
+3. **This creates a "top-down acquisition engine."** Large shippers and freight buyers (DHL, Kuehne+Nagel, CEVA, Maersk, enterprise manufacturers) need Scope 3 data from their SMB logistics providers. They will actively push SMBs toward tools that produce compatible data. GreenTrail's GTM should **partner with enterprise buyers** rather than cold-calling SMBs.
+
+**The product-channel fit:**
+- Build a **"supplier portal"** mode where an enterprise customer invites their SMB logistics providers
+- The enterprise gets standardized, auditable emission data for their CSRD Scope 3 reporting
+- The SMB gets a free or subsidized tool (enterprise pays per supplier seat)
+- GreenTrail captures the SMB as a long-term customer who eventually pays directly
+
+**Analogy:** This is the Coupa/Ariba playbook — the buyer network effect. Enterprises don't buy Coupa *for* their suppliers. They buy it for themselves and *pull* suppliers onto the platform. GreenTrail should work the same way for carbon data.
+
+**Pricing implication:** Consider a **freemium-for-supplier** model where the enterprise shipper pays for the platform and their SMB carriers get basic access free. Once SMBs see the value (and face requests from *multiple* enterprise customers), they upgrade to paid.
+
+### Jessica (Research Perspective)
+
+_Pending — Jessica's insight will be added after her daily research run._
 
 ---

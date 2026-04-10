@@ -141,4 +141,75 @@ Research by the IEA has shown that the fuel emission factors included in ISO 140
 
 ---
 
+## 2026-04-10
+
+### Entry 4 — CSRD Omnibus Value-Chain Cap & Top-Down GTM Strategy (Wilson)
+
+**Research Question:** How does the March 2026 CSRD Omnibus reform change the go-to-market dynamics for a tool targeting SMB logistics providers?
+
+**Finding: The value-chain cap creates a standardized, enterprise-driven acquisition channel for GreenTrail.**
+
+#### Background: The CSRD Omnibus I Directive (18 March 2026)
+
+The EU's Omnibus simplification package introduced a **value-chain cap** on sustainability data requests:
+
+- CSRD-reporting companies may **no longer require** suppliers with fewer than 1,000 employees to provide data **beyond what's covered by the VSME** (Voluntary SME Standard)
+- The EU Commission must publish the binding VSME content by **July 2026**
+- SMEs have a **legal right to refuse** data requests exceeding the VSME scope
+- Large companies must **clearly disclose** when they request data beyond the VSME and inform SMEs of their right to refuse
+- SMEs can self-declare their status (headcount < 1,000); the requester does not need to verify unless circumstances suggest the declaration is false
+
+#### What the Cap Does NOT Limit
+
+Critically, the value-chain cap applies **only to formal CSRD-driven data requests**. Several other channels of pressure remain fully uncapped:
+
+| Pressure Channel | Capped? | Example |
+|-----------------|---------|----------|
+| Formal CSRD data requests | ✅ Yes (VSME ceiling) | "Fill in this ESRS questionnaire for our sustainability report" |
+| Commercial procurement requirements | ❌ No | "Provide ISO 14083 emission data or you won't be in next year's tender" |
+| CountEmissionsEU compliance | ❌ No | "If you report transport emissions, you must use ISO 14083 methodology" |
+| Voluntary sustainability commitments (SBTi, etc.) | ❌ No | "We need supplier-level data for our Science-Based Targets" |
+| Due diligence (CSDDD) | ❌ No | Risk-based ESG information requests |
+| Green Claims Directive | ❌ No | Substantiation data for environmental marketing claims |
+
+**Net effect:** The formal reporting channel gets standardized (good for tooling). The commercial channel remains wide open (good for demand generation). SMBs still face real pressure to produce carbon data — they just won't be buried in bespoke questionnaires anymore.
+
+#### The VSME Standard — What to Expect
+
+Based on the EFRAG draft and Commission guidance:
+- Simplified set of **climate and governance disclosures** proportionate to SME size
+- Likely covers **company-level GHG emissions** (not product-level)
+- Product-level carbon footprints and full LCAs are **unlikely to be in scope**
+- Basic governance and social indicators
+- Publication expected **mid-2026** (watch date: July 2026)
+
+**Product implication:** GreenTrail should be ready to produce VSME-compliant output from day one of the standard's publication. First mover to support the standardized format wins the enterprise partner channel.
+
+#### GTM Insight: The Top-Down Acquisition Engine
+
+Traditional SMB SaaS GTM relies on bottom-up self-serve (SEO, content marketing, free trials). For GreenTrail, this is **necessary but insufficient**. The real volume driver is top-down:
+
+1. **Enterprise shippers need Scope 3 data** from their SMB logistics providers
+2. Instead of each enterprise building bespoke supplier surveys, they'll want a **platform** that onboards their carrier network
+3. GreenTrail positions as that platform — the enterprise is the buyer, SMBs are the users
+4. The SMB gets pulled onto the platform by their *customer's* procurement process
+5. Once on the platform (serving one customer), the SMB faces requests from *additional* enterprise customers → stickiness + upsell
+
+**Comparable playbooks:**
+| Company | Buyer | Pulled User | Network Effect |
+|---------|-------|-------------|----------------|
+| Coupa/SAP Ariba | Enterprise procurement | Suppliers | More buyers → more suppliers → more buyers |
+| Stripe | Platform/marketplace | End customer | More platforms → more merchants → more volume |
+| EcoVadis | Enterprise sustainability | Suppliers (ESG ratings) | More rated suppliers → more enterprise adoption |
+| **GreenTrail** | **Enterprise shipper** | **SMB logistics provider** | **More shippers → more carriers → network value** |
+
+**Pricing model implication:**
+- **Enterprise tier:** Per-supplier-seat pricing; enterprise pays to onboard their carrier network
+- **SMB freemium:** Basic access free when invited by an enterprise customer; upgrade for multi-customer dashboard, advanced analytics
+- **Direct SMB paid:** For SMBs who find GreenTrail on their own (bottom-up); lower price point, self-serve
+
+**Source:** Re-Flow.io (CSRD Omnibus maritime analysis, April 2026), Stratecta (Value Chain Cap explainer, 2026), KPMG (EU Omnibus ESRS changes), BFG Logistics (CSRD supply chain impact), EU Commission (VSME Q&A), GA Institute (Managing value chain data requests with VSME).
+
+---
+
 _More entries to follow from Jessica (Research) and Wilson (PM)._
